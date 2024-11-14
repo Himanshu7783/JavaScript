@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        /* .red-color{
+            color: red;
+        }
+
+        .underline{
+            text-decoration: underline;
+        } */
+    </style>
+</head>
+<body>
+
+    <nav class="block">
+        <p class="paragraph">Welcome to my website</p>
+
+    </nav>
+      <div class="block">
+        <h4 id="name-block">Hey There, My Name is <span  id="username">Himanshu Yadav</span></h4>
+        <p>Hare is a code for you</p>
+        <pre><code>console.log('Hey There')</code></pre>
+      </div>
+       
+      <div id="my-container"></div>
+        
+      <input type="text" id="input-username" placeholder="Enter your name">
+      <button id="clickButton">Click me</button>
+      
+</body>
+
+<script>
+    
+    //  || By tag Select  ||
+
+    // const pre = document.querySelector("pre");
+    // pre.innerHTML =  " <h1>Hacked!</h1>"
+
+    //  || By Id Select ||
+
+    // const username = document.querySelector("#username");
+    // username.innerText = "Priyanshu Joshi"
+
+    // ||  By class Select/ ||
+
+    // const ele= document.querySelectorAll(".block");
+    // ele.forEach((e) => {
+    //     console.log(e.innerText);
+    // });
+
+    //  const el = document.getElementById("username");
+    //  el.innerText = "Jerry";
+    // //  el.classList.add("red-color", "underline");
+
+    // el.style.textDecoration = "underline";
+    // el.style.color="tomato";
+    // el.parentElement.style.background= "grey";
+
+    // select by getElementsByClassName() to return the multiple elements
+
+    // const elements = document.getElementsByClassName("block");
+    // for(let i =0; i < elements.length; i++){
+    //     elements.item(i).style.background = "blue";
+    // }
+
+            //   || Event Listeners in JavaScript  ||
+           
+            //   ||  First way  ||
+
+            // function handleButtonClick() {
+            //     console.log("That Button is Clicked");
+            //     alert("Hey I am clicked");
+            // }
+
+            //  ||  Second Way  ||
+
+            // const el = document.getElementById("clickButton");
+            // el.onclick =  () => {
+            //     console.log("Hey I am clicked");
+            // };
+
+            //  ||  Third way  ||
+
+            // el.addEventListener("click", () => {
+            //     console.log("I am clicked ");
+            // }); 
+
+            //   || fourth way ||
+
+            // let doSomthing = () => {
+            //     console.log(" Hey Coders")
+            // };
+             
+            //  el.addEventListener('click', doSomthing)
+
+            //   || toggle Effect ~ ||
+
+            // const nameBlock = document.getElementById("name-block");
+
+
+            // el.addEventListener("click", () => {
+            //     if(nameBlock.style.color === "red"){
+            //         nameBlock.style.color = "blue";
+            //     }else{
+            //         nameBlock.style.color = "red";
+            //     }
+                
+            // });
+
+            //  const allChildren = document.querySelector("body").children
+
+
+            //  for(let i = 0; i < allChildren.length; i++){
+            //     allChildren.item(i).addEventListener("click", ()=> {
+            //         allChildren.item(i).remove();
+            //     });
+            //  }
+
+             
+            //   || create element dynamically ||
+
+
+    //   const button = document.getElementById("clickButton");
+    //   const container = document.getElementById("my-container")
+        
+    //     let count =1;
+        
+    //   button.addEventListener("click", () => {
+    //     const el = document.createElement("li");
+    //     el.innerText = count;
+    //     container.appendChild(el);
+
+    //     count++
+    //   })
+
+
+    //   ||  promises  ||
+
+    // let a = 10;
+    // let b  = 20;
+
+    // let result = a+b;
+
+    // By sync & async way
+
+    // async function getData() {
+    //     let resultFromServer = await fetch(
+    //         "https://official-joke-api.appspot.com/random_joke"
+    //     );
+    //     console.log(await resultFromServer.json());
+        
+    // }
+
+    // getData();
+
+
+    // fetch("https://official-joke-api.appspot.com/random_joke")
+    // .then((data) => {
+    //     console.log(data);
+    // })
+    // .catch((error) =>{
+    //     console.log(error);
+    // });
+    // console.log(result);
+
+    // localStorage variable  for the storage
+
+ const button = document.getElementById("clickButton");
+ const uname = document.getElementById("input-username");
+ const username = document.getElementById("username");
+
+ button.addEventListener("click", () => {
+    const value = uname.value;
+    console.log(value);
+    localStorage.setItem("name", value);
+    location.reload();
+ });
+
+ window.addEventListener("load", () => {
+    const value = localStorage.getItem('name');
+    username.innerText=value;
+ })
+
+
+
+
+
+</script>
+</html>
